@@ -52,3 +52,13 @@ void main() {
   print("Age of ${car3.getBrand()} is ${car3.getAge()} years old");
   print("Total ${Car.numberOfCars} Cars");
 }
+//outputs
+/*
+Brand:Ferrari, Model:s686, Year:1989, Miles:1205.4
+Brand:BMW, Model:M434, Year:1971, Miles:1305.5
+Brand:Lamborghini, Model:xyz123, Year:1992, Miles:1412.3
+Age of Ferrari is 35 years old
+Age of BMW is 53 years old
+Age of Lamborghini is 32 years old
+Total 3 Cars
+*/
