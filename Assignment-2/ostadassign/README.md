@@ -7,15 +7,15 @@ This project demonstrates a simple Flutter application with three screens: Home,
 
 1. **Home Screen**
    
-   ![Home Screen](ss/1.png)
+   <img src="ss/1.png" alt="Home Screen" width="300">
 
 2. **Settings Screen**
 
-   ![Settings Screen](ss/2.png)
+   <img src="ss/2.png" alt="Settings Screen" width="300">
 
 3. **Detail Screen**
 
-   ![Detail Screen](ss/3.png)
+   <img src="ss/3.png" alt="Detail Screen" width="300">
 
 ## Getting Started
 
