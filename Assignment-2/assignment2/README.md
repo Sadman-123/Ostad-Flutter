@@ -10,7 +10,7 @@ Welcome to the Greeting App! This app is built using Flutter and is designed to 
 
 ## Screenshots
 
-![App Screenshot](ss/1.png)
+<img src="ss/1.png" alt="App Screenshot" width="300"/>
 
 
 ## Getting Started
