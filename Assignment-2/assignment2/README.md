@@ -19,7 +19,7 @@ To get started with the app, follow these steps:
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/greeting-app.git
+    git clone https://github.com/Sadman-123/Ostad-Flutter.git
     ```
 2. **Navigate to the project directory:**
     ```bash
