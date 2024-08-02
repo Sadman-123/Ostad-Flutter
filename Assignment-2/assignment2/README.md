@@ -21,18 +21,7 @@ To get started with the app, follow these steps:
     ```bash
     git clone https://github.com/Sadman-123/Ostad-Flutter.git
     ```
-2. **Navigate to the project directory:**
-    ```bash
-    cd greeting-app
-    ```
-3. **Install dependencies:**
-    ```bash
-    flutter pub get
-    ```
-4. **Run the app:**
-    ```bash
-    flutter run
-    ```
+
 
 ## Built With
 
