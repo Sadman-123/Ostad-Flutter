@@ -21,7 +21,7 @@ Widget Mobile_View()
           Container(
             height: 200,
             width: double.infinity,
-            color: Colors.blue,
+            color: Colors.greenAccent.shade400,
             child: Center(child: Text("Flutter Web",style: TextStyle(fontSize: 30,color: Colors.white),)),
           ),
           ListTile(
@@ -29,8 +29,8 @@ Widget Mobile_View()
             title: Text("Home",style: TextStyle(color: Colors.black),),
           ),
           ListTile(
-            leading: Icon(Icons.message,color: Colors.black,),
-            title: Text("Messages",style: TextStyle(color: Colors.black),),
+            leading: Icon(Icons.favorite,color: Colors.black,),
+            title: Text("Favourites",style: TextStyle(color: Colors.black),),
           ),
         ],
       ),
@@ -52,7 +52,7 @@ Widget Mobile_View()
           SizedBox(height: 15,),
           ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.blue),
+              backgroundColor: MaterialStateProperty.all(Colors.greenAccent.shade400),
               foregroundColor: MaterialStateProperty.all(Colors.white),
               minimumSize: MaterialStateProperty.all(Size(260, 50)),
             ),
