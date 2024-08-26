@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 Widget Mobile_View()
 {
-  return Scaffold();
+  return Scaffold(
+    body: Center(
+      child: Text("Mobile"),
+    ),
+  );
 }
