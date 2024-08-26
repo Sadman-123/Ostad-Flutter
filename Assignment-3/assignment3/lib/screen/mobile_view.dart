@@ -2,8 +2,17 @@ import 'package:flutter/material.dart';
 Widget Mobile_View()
 {
   return Scaffold(
-    body: Center(
-      child: Text("Mobile"),
+   appBar: AppBar(),
+    drawer: Drawer(
+      child: ListView(
+        children: [
+          Container(
+            height: 200,
+            width: double.infinity,
+            color: Colors.blue,
+          )
+        ],
+      ),
     ),
   );
 }
