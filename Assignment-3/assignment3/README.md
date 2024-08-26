@@ -5,52 +5,6 @@
 
 This project is designed to practice creating responsive Flutter applications that adapt to different screen sizes, including Desktop, Tablet, and Mobile views. 
 
-In this assignment, the `SS` directory contains screenshots representing different device views:
-
-- **1.png**: Desktop view
-- **2.png**: Tablet view
-- **3.png**: Mobile view (first layout)
-- **4.png**: Mobile view (second layout)
-
-## Directory Structure
-
-```
-Assignment3/
-│
-├── SS/
-│   ├── 1.png       # Desktop view screenshot
-│   ├── 2.png       # Tablet view screenshot
-│   ├── 3.png       # Mobile view screenshot (layout 1)
-│   ├── 4.png       # Mobile view screenshot (layout 2)
-│
-├── lib/
-│   ├── main.dart   # Main Dart file for the Flutter application
-│   └── ...         # Other Dart files and directories
-│
-└── README.md       # Project documentation
-```
-
-## How to Run
-
-1. **Clone the repository**:
-   ```
-   git clone <repository-url>
-   ```
-
-2. **Navigate to the project directory**:
-   ```
-   cd Assignment3
-   ```
-
-3. **Get dependencies**:
-   ```
-   flutter pub get
-   ```
-
-4. **Run the application**:
-   ```
-   flutter run
-   ```
 
 ## Screenshots
 
