@@ -1,4 +1,3 @@
-import 'package:assignment4/custom_widgets/shirt_card.dart';
 import 'package:flutter/material.dart';
 void main()
 {
@@ -29,7 +28,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Bag",style: TextStyle(fontSize: 40,fontWeight: FontWeight.w800,color: Colors.black),),
+        title: Text("My Bag",style: TextStyle(fontSize: 36,fontWeight: FontWeight.w800,color: Colors.black),),
       ),
       body: Column(
         children: [
@@ -41,6 +40,7 @@ class _AppState extends State<App> {
             height: 130,
             width: double.infinity,
             decoration: BoxDecoration(
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               border: Border.all(color: Colors.black26,width: 0.2)
             ),
@@ -53,7 +53,6 @@ class _AppState extends State<App> {
                       image: DecorationImage(
                         image: AssetImage("assets/pullover.png"),
                       ),
-                      color: Colors.pink,
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           bottomLeft: Radius.circular(10)
@@ -68,7 +67,7 @@ class _AppState extends State<App> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text("Pullover",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500),),
+                              Text("Pullover",style: TextStyle(fontSize: 27,fontWeight: FontWeight.w500),),
                               IconButton(onPressed: (){}, icon: Icon(Icons.more_vert_outlined))
                             ],
                           ),
@@ -80,7 +79,7 @@ class _AppState extends State<App> {
                                     TextSpan(
                                       text: 'color: ',
                                       style: TextStyle(
-                                          color: Colors.black,
+                                        color: Colors.black45,
                                           fontSize: 15
                                       ),
                                     ),
@@ -102,7 +101,7 @@ class _AppState extends State<App> {
                                     TextSpan(
                                       text: 'Size: ',
                                       style: TextStyle(
-                                          color: Colors.black,
+                                          color: Colors.black45,
                                           fontSize: 15
                                       ),
                                     ),
@@ -128,12 +127,12 @@ class _AppState extends State<App> {
                                   children: [
                                     GestureDetector(
                                       child: Container(
-                                        child: Text("+",style: TextStyle(fontSize: 20),),
+                                        child: Text("+",style: TextStyle(fontSize: 25),),
                                         alignment: Alignment.center,
                                         height: 30,
                                         width: 30,
                                         decoration: BoxDecoration(
-                                            color: Colors.white,
+                                            color: Colors.blue.shade50,
                                             borderRadius: BorderRadius.circular(50)
                                         ),
                                       ),
@@ -147,12 +146,12 @@ class _AppState extends State<App> {
                                     Text("$ct1",style: TextStyle(fontSize: 32),),
                                     GestureDetector(
                                       child: Container(
-                                        child: Text("-",style: TextStyle(fontSize: 20),),
+                                        child: Text("-",style: TextStyle(fontSize: 25),),
                                         alignment: Alignment.center,
                                         height: 30,
                                         width: 30,
                                         decoration: BoxDecoration(
-                                            color: Colors.white,
+                                            color: Colors.blue.shade50,
                                             borderRadius: BorderRadius.circular(50)
                                         ),
                                       ),
@@ -211,7 +210,9 @@ class _AppState extends State<App> {
                   height: 130,
                   width: double.infinity,
                   decoration: BoxDecoration(
+
                       borderRadius: BorderRadius.circular(20),
+                      color: Colors.white,
                       border: Border.all(color: Colors.black26,width: 0.2)
                   ),
                   child: Row(
@@ -223,7 +224,6 @@ class _AppState extends State<App> {
                             image: DecorationImage(
                               image: AssetImage("assets/tshirt.png"),
                             ),
-                            color: Colors.pink,
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(10),
                                 bottomLeft: Radius.circular(10)
@@ -238,7 +238,7 @@ class _AppState extends State<App> {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text("T-Shirt",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500),),
+                                    Text("T-Shirt",style: TextStyle(fontSize: 27,fontWeight: FontWeight.w500),),
                                     IconButton(onPressed: (){}, icon: Icon(Icons.more_vert_outlined))
                                   ],
                                 ),
@@ -250,7 +250,7 @@ class _AppState extends State<App> {
                                           TextSpan(
                                             text: 'color: ',
                                             style: TextStyle(
-                                                color: Colors.black,
+                                                color: Colors.black45,
                                                 fontSize: 15
                                             ),
                                           ),
@@ -272,7 +272,7 @@ class _AppState extends State<App> {
                                           TextSpan(
                                             text: 'Size: ',
                                             style: TextStyle(
-                                                color: Colors.black,
+                                                color: Colors.black45,
                                                 fontSize: 15
                                             ),
                                           ),
@@ -298,12 +298,12 @@ class _AppState extends State<App> {
                                         children: [
                                           GestureDetector(
                                             child: Container(
-                                              child: Text("+",style: TextStyle(fontSize: 20),),
+                                              child: Text("+",style: TextStyle(fontSize: 25),),
                                               alignment: Alignment.center,
                                               height: 30,
                                               width: 30,
                                               decoration: BoxDecoration(
-                                                  color: Colors.white,
+                                                  color: Colors.blue.shade50,
                                                   borderRadius: BorderRadius.circular(50)
                                               ),
                                             ),
@@ -317,12 +317,12 @@ class _AppState extends State<App> {
                                           Text("$ct2",style: TextStyle(fontSize: 32),),
                                           GestureDetector(
                                             child: Container(
-                                              child: Text("-",style: TextStyle(fontSize: 20),),
+                                              child: Text("-",style: TextStyle(fontSize: 25),),
                                               alignment: Alignment.center,
                                               height: 30,
                                               width: 30,
                                               decoration: BoxDecoration(
-                                                  color: Colors.white,
+                                                  color: Colors.blue.shade50,
                                                   borderRadius: BorderRadius.circular(50)
                                               ),
                                             ),
@@ -382,6 +382,7 @@ class _AppState extends State<App> {
                   width: double.infinity,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
+                      color: Colors.white,
                       border: Border.all(color: Colors.black26,width: 0.2)
                   ),
                   child: Row(
@@ -393,7 +394,6 @@ class _AppState extends State<App> {
                             image: DecorationImage(
                               image: AssetImage("assets/sport.png"),
                             ),
-                            color: Colors.pink,
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(10),
                                 bottomLeft: Radius.circular(10)
@@ -408,7 +408,7 @@ class _AppState extends State<App> {
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text("Sport Dress",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500),),
+                                    Text("Sport Dress",style: TextStyle(fontSize: 27,fontWeight: FontWeight.w500),),
                                     IconButton(onPressed: (){}, icon: Icon(Icons.more_vert_outlined))
                                   ],
                                 ),
@@ -420,7 +420,7 @@ class _AppState extends State<App> {
                                           TextSpan(
                                             text: 'color: ',
                                             style: TextStyle(
-                                                color: Colors.black,
+                                                color: Colors.black45,
                                                 fontSize: 15
                                             ),
                                           ),
@@ -442,7 +442,7 @@ class _AppState extends State<App> {
                                           TextSpan(
                                             text: 'Size: ',
                                             style: TextStyle(
-                                                color: Colors.black,
+                                                color: Colors.black45,
                                                 fontSize: 15
                                             ),
                                           ),
@@ -468,12 +468,12 @@ class _AppState extends State<App> {
                                         children: [
                                           GestureDetector(
                                             child: Container(
-                                              child: Text("+",style: TextStyle(fontSize: 20),),
+                                              child: Text("+",style: TextStyle(fontSize: 25),),
                                               alignment: Alignment.center,
                                               height: 30,
                                               width: 30,
                                               decoration: BoxDecoration(
-                                                  color: Colors.white,
+                                                  color: Colors.blue.shade50,
                                                   borderRadius: BorderRadius.circular(50)
                                               ),
                                             ),
@@ -487,12 +487,12 @@ class _AppState extends State<App> {
                                           Text("$ct3",style: TextStyle(fontSize: 32),),
                                           GestureDetector(
                                             child: Container(
-                                              child: Text("-",style: TextStyle(fontSize: 20),),
+                                              child: Text("-",style: TextStyle(fontSize: 25),),
                                               alignment: Alignment.center,
                                               height: 30,
                                               width: 30,
                                               decoration: BoxDecoration(
-                                                  color: Colors.white,
+                                                  color: Colors.blue.shade50,
                                                   borderRadius: BorderRadius.circular(50)
                                               ),
                                             ),
