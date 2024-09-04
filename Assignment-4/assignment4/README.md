@@ -1,16 +1,7 @@
-# assignment4
+# Assignment 4
 
-A new Flutter project.
+This app was a checkout page which was made with flutter.Ofcourse Material UI.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshot
+<img src="SS/ss1.png" alt="App Screenshot" width="300"/>
+<img src="SS/ss2.png" alt="App Screenshot" width="300"/>
