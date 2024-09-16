@@ -4,15 +4,16 @@ class HomeDetails extends StatelessWidget{
   final String purl;
   final String title;
   final String task;
+  final String time;
   final String idx;
-  const HomeDetails({super.key, required this.purl, required this.title, required this.task, required this.idx});
+  const HomeDetails({super.key, required this.purl, required this.title, required this.task, required this.idx, required this.time});
   @override
   Widget build(BuildContext context) {
     var mdw=MediaQuery.of(context).size.width;
     var mdh=MediaQuery.of(context).size.height;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text("Blog Details",style: TextStyle(fontSize: mdw*0.056),),
+        middle: Text("Blog Details",style: TextStyle(fontSize: mdw*0.056,fontFamily: "apple"),),
         trailing: Icon(CupertinoIcons.share,),
       ),
       child: SafeArea(
@@ -39,8 +40,8 @@ class HomeDetails extends StatelessWidget{
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("$title",style: TextStyle(fontSize: mdw*0.09,fontWeight: FontWeight.bold),),
-                   Text("time")
+                    Text("$title",style: TextStyle(fontSize: mdw*0.09,fontWeight: FontWeight.bold,fontFamily: "apple"),),
+                   Text("$time",overflow: TextOverflow.ellipsis,)
                   ],
                 ),
               ),
@@ -56,7 +57,6 @@ class HomeDetails extends StatelessWidget{
                       Container(
                         alignment: Alignment.topLeft,
                           child: Text("$task",style: TextStyle(fontSize: mdw*0.05),)),
-                      CupertinoButton.filled(child: Text("Click me"), onPressed: (){})
                     ],
                   ),
                 ),

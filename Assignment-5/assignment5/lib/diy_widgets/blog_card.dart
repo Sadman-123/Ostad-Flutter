@@ -1,22 +1,24 @@
 import 'package:assignment5/screens/blog_home_details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 
 class BlogCard extends StatefulWidget {
   final String task;
   final String title;
   final String picurl;
+  final String time;
   final String idx;
+  final VoidCallback onUpdateOrDelete;
 
   BlogCard({
     super.key,
     required this.task,
     required this.title,
     required this.picurl,
-    required this.idx,
+    required this.idx, required this.time, required this.onUpdateOrDelete,
   });
 
   @override
@@ -28,6 +30,14 @@ class _BlogCardState extends State<BlogCard> {
   final TextEditingController _taskController = TextEditingController();
   final ImagePicker _picker = ImagePicker();
   File? _newSelectedImage;
+  String getFormattedDateTime() {
+    final now = DateTime.now();
+    final timeFormatter = DateFormat('hh:mma');
+    final dateFormatter = DateFormat('MM/dd/yyyy');
+    final time = timeFormatter.format(now);
+    final date = dateFormatter.format(now);
+    return '$time $date';
+  }
 
   Future<void> updateToApi(String idx) async {
     var url = Uri.parse("https://tasker26.vercel.app/update/$idx");
@@ -35,17 +45,17 @@ class _BlogCardState extends State<BlogCard> {
 
     request.fields['title'] = _titleController.text;
     request.fields['task'] = _taskController.text;
+    request.fields['time']=getFormattedDateTime();
 
     if (_newSelectedImage != null) {
       var pic = await http.MultipartFile.fromPath('pic', _newSelectedImage!.path);
       request.files.add(pic);
     }
-
     var res = await request.send();
 
     if (res.statusCode == 200) {
+      widget.onUpdateOrDelete();
       Navigator.of(context).pop();
-      // Optionally, you can also refresh the data here
     }
   }
 
@@ -62,8 +72,8 @@ class _BlogCardState extends State<BlogCard> {
     var url = Uri.parse("https://tasker26.vercel.app/delete/$idx");
     var res = await http.delete(url);
     if (res.statusCode == 200) {
+      widget.onUpdateOrDelete();
       Navigator.of(context).pop();
-      // Optionally, you can also refresh the data here
     }
   }
 
@@ -247,6 +257,7 @@ class _BlogCardState extends State<BlogCard> {
           CupertinoPageRoute(
             builder: (context) => HomeDetails(
               idx: widget.idx,
+              time: widget.time,
               task: widget.task,
               title: widget.title,
               purl: widget.picurl.toString(),
