@@ -1,4 +1,5 @@
 import 'package:assignment5/screens/home.dart';
+import 'package:assignment5/screens/home_details.dart';
 import 'package:flutter/material.dart';
 void main()
 {
@@ -21,7 +22,7 @@ class Main extends StatelessWidget
         )
       ),
       debugShowCheckedModeBanner: false,
-      home: Home() ,
+      home: Home(),
     );
   }
 }

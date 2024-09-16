@@ -39,6 +39,7 @@ class _HomeState extends State<Home> {
         itemBuilder: (context, index) {
           var picUrl = arr[index]['picUrl'];
           return BlogCard(
+            title: arr[index]['title'],
             task: arr[index]['task']!,
             picurl: picUrl != null && picUrl.isNotEmpty ? picUrl : '', // Handle null or empty picUrl
           );
