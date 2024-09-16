@@ -3,9 +3,8 @@ class HomeDetails extends StatelessWidget{
   final String purl;
   final String title;
   final String task;
-
-  const HomeDetails({super.key, required this.purl, required this.title, required this.task});
-
+  final String idx;
+  const HomeDetails({super.key, required this.purl, required this.title, required this.task, required this.idx});
   @override
   Widget build(BuildContext context) {
     var mdw=MediaQuery.of(context).size.width;
@@ -13,20 +12,24 @@ class HomeDetails extends StatelessWidget{
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         middle: Text("Blog Details"),
+        trailing: Icon(CupertinoIcons.share),
       ),
       child: SafeArea(
         child: Column(
           children: [
-            Container(
-              height: mdh*0.3,
-              decoration: BoxDecoration(
-                color: CupertinoColors.activeOrange,
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage("$purl")
-                )
+            Hero(
+              tag: "$idx",
+              child: Container(
+                height: mdh*0.3,
+                decoration: BoxDecoration(
+                  color: CupertinoColors.activeOrange,
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage("$purl")
+                  )
+                ),
+                width: double.infinity,
               ),
-              width: double.infinity,
             ),
             Container(
               height: mdh*0.10,
@@ -36,7 +39,7 @@ class HomeDetails extends StatelessWidget{
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("$title",style: TextStyle(fontSize: mdw*0.09,fontWeight: FontWeight.bold),),
-                    Icon(CupertinoIcons.share)
+                   Text("time")
                   ],
                 ),
               ),
