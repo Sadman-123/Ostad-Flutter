@@ -82,7 +82,7 @@ class _HomeState extends State<Home> {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
         automaticallyImplyLeading: false,
-        middle: Text("Blogs",style: TextStyle(fontSize: mdw*0.056,fontFamily: "apple"),),
+        middle: Text("Blogs",style: TextStyle(fontSize: mdw*0.056,fontFamily: "apple",fontWeight: FontWeight.bold),),
       ),
       child: SafeArea(
         child: arr.isEmpty ? Center(

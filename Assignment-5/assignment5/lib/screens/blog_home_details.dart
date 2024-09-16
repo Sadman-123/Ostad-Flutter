@@ -13,8 +13,8 @@ class HomeDetails extends StatelessWidget{
     var mdh=MediaQuery.of(context).size.height;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text("Blog Details",style: TextStyle(fontSize: mdw*0.056,fontFamily: "apple"),),
-        trailing: Icon(CupertinoIcons.share,),
+        middle: Text("Blog Details",style: TextStyle(fontSize: mdw*0.056,fontFamily: "apple",fontWeight: FontWeight.bold),),
+        trailing: Icon(CupertinoIcons.share,color: CupertinoColors.activeBlue,),
       ),
       child: SafeArea(
         child: Column(
@@ -40,7 +40,7 @@ class HomeDetails extends StatelessWidget{
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("$title",style: TextStyle(fontSize: mdw*0.09,fontWeight: FontWeight.bold,fontFamily: "apple"),),
+                    Text("$title",style: TextStyle(fontSize: mdw*0.09,fontWeight: FontWeight.bold,fontFamily: "apple",),),
                    Text("$time",overflow: TextOverflow.ellipsis,)
                   ],
                 ),
