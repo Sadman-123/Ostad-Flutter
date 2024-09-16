@@ -30,6 +30,22 @@ This is a Flutter-based **Cupertino App** named **Blog**. The app provides a use
 | ------------ |
 | ![s6](SS/s6.png) |
 
+## API Integration
+
+The Blog App integrates with a RESTful API built with Express.js and MongoDB, hosted on Vercel. This API handles the CRUD operations for blog posts.
+
+### API Endpoints
+
+- **Create Blog Post**: `POST /api/upload`
+- **Read Blog Posts**: `GET /api/api`
+- **Update Blog Post**: `PUT /api/update/:id`
+- **Delete Blog Post**: `DELETE /api/delete/:id`
+
+### Testing the API
+
+You can test the API using the Postman collection provided below:
+
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://god.gw.postman.com/run-collection/38050242-c0ec2cfc-a181-437a-a6b9-84d26aa991e6?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D38050242-c0ec2cfc-a181-437a-a6b9-84d26aa991e6%26entityType%3Dcollection%26workspaceId%3D491054b4-8867-4375-b568-d295e9a4e1b0)
 
 ## Demo Video
 
