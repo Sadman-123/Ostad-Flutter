@@ -50,4 +50,4 @@ You can test the API using the Postman collection provided below:
 
 ## Demo Video
 
-[![Blog App Demo](https://img.youtube.com/vi/WUBMcHZ4rFQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=youWUBMcHZ4rFQ)
+[![Blog App Demo](https://img.youtube.com/vi/WUBMcHZ4rFQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=WUBMcHZ4rFQ)
