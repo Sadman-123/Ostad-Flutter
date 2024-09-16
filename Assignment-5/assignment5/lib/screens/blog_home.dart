@@ -62,14 +62,13 @@ class _HomeState extends State<Home> {
     var mdh = MediaQuery.of(context).size.height;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text("Blogs"),
+        automaticallyImplyLeading: false,
+        middle: Text("Blogs",style: TextStyle(fontSize: mdw*0.056),),
       ),
       child: SafeArea(
-        child: arr.isEmpty
-            ? Center(
+        child: arr.isEmpty ? Center(
           child: CupertinoActivityIndicator(radius: 25),
-        )
-            : Column(
+        ) : Column(
           children: [
             Expanded(
               child: GridView.builder(

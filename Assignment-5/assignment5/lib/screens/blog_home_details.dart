@@ -1,3 +1,4 @@
+import 'package:assignment5/screens/blog_home.dart';
 import 'package:flutter/cupertino.dart';
 class HomeDetails extends StatelessWidget{
   final String purl;
@@ -11,8 +12,8 @@ class HomeDetails extends StatelessWidget{
     var mdh=MediaQuery.of(context).size.height;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text("Blog Details"),
-        trailing: Icon(CupertinoIcons.share),
+        middle: Text("Blog Details",style: TextStyle(fontSize: mdw*0.056),),
+        trailing: Icon(CupertinoIcons.share,),
       ),
       child: SafeArea(
         child: Column(

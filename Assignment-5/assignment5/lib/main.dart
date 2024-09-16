@@ -1,5 +1,4 @@
 import 'package:assignment5/screens/blog_home.dart';
-import 'package:assignment5/screens/blog_home_details.dart';
 import 'package:flutter/cupertino.dart';
 void main()
 {
