@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
     var url = Uri.parse("https://tasker26.vercel.app/api");
     var res = await http.get(url);
     setState(() {
-      arr.clear();  // Clear the old data before adding new data
+      arr.clear();
       arr.addAll(jsonDecode(res.body));
     });
   }
