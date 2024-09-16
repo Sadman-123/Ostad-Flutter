@@ -36,10 +36,10 @@ The Blog App integrates with a RESTful API built with Express.js and MongoDB, ho
 
 ### API Endpoints
 
-- **Create Blog Post**: `POST /api/upload`
-- **Read Blog Posts**: `GET /api/api`
-- **Update Blog Post**: `PUT /api/update/:id`
-- **Delete Blog Post**: `DELETE /api/delete/:id`
+- **Create Blog Post**: `POST /https://tasker26.vercel.app/upload`
+- **Read Blog Posts**: `GET /https://tasker26.vercel.app/api`
+- **Update Blog Post**: `PUT /https://tasker26.vercel.app/update/:id`
+- **Delete Blog Post**: `DELETE /https://tasker26.vercel.app/delete/:id`
 
 ### Testing the API
 
