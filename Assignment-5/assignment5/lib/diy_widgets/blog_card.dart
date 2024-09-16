@@ -1,11 +1,13 @@
-import 'package:assignment5/screens/home_details.dart';
-import 'package:flutter/material.dart';
+import 'package:assignment5/screens/blog_home_details.dart';
+import 'package:flutter/cupertino.dart';
 
 class BlogCard extends StatelessWidget {
   final String task;
   final String title;
   final String? picurl;
-  const BlogCard({super.key, required this.task, this.picurl, required this.title});
+
+  const BlogCard({super.key, required this.task, required this.title, this.picurl});
+
   @override
   Widget build(BuildContext context) {
     var mdw = MediaQuery.of(context).size.width;
@@ -13,7 +15,7 @@ class BlogCard extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(20)),
-          border: Border.all(color: Colors.black26),
+          border: Border.all(color: CupertinoColors.separator),
         ),
         padding: EdgeInsets.all(10),
         child: Column(
@@ -48,9 +50,9 @@ class BlogCard extends StatelessWidget {
         ),
       ),
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => HomeDetails(
-          title: title,
+        Navigator.push(context, CupertinoPageRoute(builder: (context) => HomeDetails(
           task: task,
+          title: title,
           purl: picurl.toString(),
         ),));
       },
