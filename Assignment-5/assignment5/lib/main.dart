@@ -14,6 +14,10 @@ class Main extends StatelessWidget
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           titleTextStyle: TextStyle(fontSize: mdw*0.079,color: Colors.black,fontWeight: FontWeight.w800)
+        ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          foregroundColor: Colors.black,
+          backgroundColor: Colors.blueAccent.shade100
         )
       ),
       debugShowCheckedModeBanner: false,

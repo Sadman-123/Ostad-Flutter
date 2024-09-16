@@ -1,4 +1,6 @@
+import 'package:assignment5/diy_widgets/blog_card.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class Home extends StatefulWidget
 {
   @override
@@ -12,7 +14,8 @@ class _HomeState extends State<Home> {
      appBar: AppBar(
        title: Text("Blogs"),
      ),
-     floatingActionButton: FloatingActionButton(onPressed: (){},child: Icon(Icons.edit),),
+     body: BlogCard(),
+     floatingActionButton: FloatingActionButton(onPressed: (){},child: Icon(FontAwesomeIcons.pen),),
    );
   }
 }
