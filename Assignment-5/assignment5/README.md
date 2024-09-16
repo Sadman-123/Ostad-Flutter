@@ -1,16 +1,32 @@
-# assignment5
 
-A new Flutter project.
+# Blog App
 
-## Getting Started
+This is a Flutter-based **Cupertino App** named **Blog**. The app provides a user-friendly interface for managing blog posts, including operations for Create, Read, Update, and Delete.
 
-This project is a starting point for a Flutter application.
+## Features
+- **Create** a blog post (Screenshot: s3.png)
+- **Read** existing blog posts (Screenshots: s1.png, s2.png)
+- **Update** a blog post (Screenshot: s5.png)
+- **Delete** a blog post (Screenshot: s6.png)
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Read Operation
+| Screenshot 1 | Screenshot 2 |
+| ------------ | ------------ |
+| ![s1](SS/s1.png) | ![s2](SS/s2.png) |
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Create Operation
+| Screenshot 3 |
+| ------------ |
+| ![s3](SS/s3.png) |
+
+### Update Operation
+| Screenshot 5 |
+| ------------ |
+| ![s5](SS/s5.png) |
+
+### Delete Operation
+| Screenshot 6 |
+| ------------ |
+| ![s6](SS/s6.png) |
