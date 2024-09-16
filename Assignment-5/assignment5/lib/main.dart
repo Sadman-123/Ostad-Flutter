@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:assignment5/screens/home.dart';
+import 'package:flutter/cupertino.dart';
 void main()
 {
   runApp(Main());
@@ -7,6 +8,9 @@ class Main extends StatelessWidget
 {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return CupertinoApp(
+      debugShowCheckedModeBanner: false,
+      home: Home() ,
+    );
   }
 }
