@@ -13,6 +13,9 @@ class Main extends StatelessWidget
     var mdh=MediaQuery.of(context).size.height;
     return MaterialApp(
       theme: ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder()
+        ),
         appBarTheme: AppBarTheme(
           titleTextStyle: TextStyle(fontSize: mdw*0.079,color: Colors.black,fontWeight: FontWeight.w800)
         ),
