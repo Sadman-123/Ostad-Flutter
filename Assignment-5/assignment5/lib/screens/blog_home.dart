@@ -61,8 +61,6 @@ class _HomeState extends State<Home> {
       });
 
       Navigator.of(context).pop();
-
-      // Refresh the blog list after posting successfully
       await getfromApi();
     }
   }
