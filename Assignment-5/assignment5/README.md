@@ -30,3 +30,8 @@ This is a Flutter-based **Cupertino App** named **Blog**. The app provides a use
 | Screenshot 6 |
 | ------------ |
 | ![s6](SS/s6.png) |
+
+
+## Demo Video
+
+[![Blog App Demo](https://img.youtube.com/vi/WUBMcHZ4rFQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=youWUBMcHZ4rFQ)
