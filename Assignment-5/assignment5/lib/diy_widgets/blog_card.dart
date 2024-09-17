@@ -173,7 +173,7 @@ class _BlogCardState extends State<BlogCard> {
                           builder: (context) {
                             return CupertinoAlertDialog(
                               title: Text("Delete"),
-                              content: Text("Are you sure you want to delete Blog ID ${widget.idx}?"),
+                              content: Text("Are you sure you want to delete Blog Titled ${widget.title}?"),
                               actions: [
                                 CupertinoButton(
                                   child: Text('Confirm'),
