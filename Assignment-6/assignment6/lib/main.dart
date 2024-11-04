@@ -8,6 +8,7 @@ import 'package:task_manager/initial_screens/forgot_password/otppage.dart';
 import 'package:task_manager/initial_screens/forgot_password/passwordpage.dart';
 import 'package:task_manager/initial_screens/login.dart';
 import 'package:task_manager/initial_screens/registration.dart';
+import 'package:task_manager/initial_screens/update_profile.dart';
 import 'style/style.dart';
 import 'initial_screens/splash.dart';
 import 'task_screens/task_home.dart';
@@ -39,7 +40,7 @@ class Main extends StatelessWidget {
         '/home':(context)=>TaskHome(),
         '/EmailVerify':(context)=>Emailpage(),
         '/OtpVerify':(context)=>Otppage(),
-        '/NewPassword':(context)=>Passwordpage()
+        '/NewPassword':(context)=>Passwordpage(),
       },
     );
   }

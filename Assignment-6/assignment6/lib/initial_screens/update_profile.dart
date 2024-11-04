@@ -16,7 +16,6 @@ class UpdateProfile extends StatefulWidget {
 class _UpdateProfileState extends State<UpdateProfile> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Get_My_Info();
   }

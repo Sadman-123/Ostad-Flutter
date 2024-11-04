@@ -22,14 +22,6 @@ class UserController extends GetxController {
   }
   @override
   void onClose() {
-    email.dispose();
-    first_name.dispose();
-    last_name.dispose();
-    mobile.dispose();
-    password.dispose();
-    recovery_email.dispose();
-    recovery_pass.dispose();
-    recovery_pass_confirm.dispose();
     super.onClose();
   }
   RxString Appbar_Name = "".obs;
@@ -92,7 +84,8 @@ class UserController extends GetxController {
     }
   }
   Future<void> login(BuildContext context, TextEditingController email,
-      TextEditingController password) async {
+      TextEditingController password) async
+  {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     if (email.text.isEmpty || password.text.isEmpty) {
       Fluttertoast.showToast(
@@ -240,134 +233,6 @@ class UserController extends GetxController {
       picurl.value = savedImagePath;
     } else {
       appbarImage.value = File("");
-    }
-  }
-  Future<void> send_otp() async {
-    try {
-      var url = Uri.parse("http://35.73.30.144:2005/api/v1/RecoverVerifyEmail/${recovery_email.text.toString()}");
-      print("Sending OTP to: ${recovery_email.text}");
-      var res = await http.get(url, headers: {'Content-Type': 'application/json'});
-      print("Response status: ${res.statusCode}");
-      print("Response body: ${res.body}");
-      if (res.statusCode == 200) {
-        Fluttertoast.showToast(
-          msg: "OTP Sent Successfully",
-          gravity: ToastGravity.BOTTOM,
-          backgroundColor: Color(0xFF20be73),
-          textColor: Colors.white,
-        );
-        Get.to(()=>Otppage(),transition: Transition.cupertino);
-      } else {
-        Fluttertoast.showToast(
-          msg: "Something Went Wrong: ${res.body}",
-          gravity: ToastGravity.BOTTOM,
-          backgroundColor: Colors.black,
-          textColor: Colors.white,
-        );
-      }
-    } catch (e) {
-      print("Error: $e");
-      Fluttertoast.showToast(
-        msg: "An error occurred: $e",
-        gravity: ToastGravity.BOTTOM,
-        backgroundColor: Colors.black,
-        textColor: Colors.white,
-      );
-    }
-  }
-  Future<void>check_otp()async{
-    try{
-      var url = Uri.parse("http://35.73.30.144:2005/api/v1/RecoverVerifyOtp/${recovery_email.text.toString()}/${recovery_otp}");
-      var res=await http.get(url,headers: {'Content-Type':'application/json'});
-      if(res.statusCode==200)
-      {
-        Fluttertoast.showToast(
-          msg: "OTP Matched",
-          gravity: ToastGravity.BOTTOM,
-          backgroundColor: Color(0xFF20be73),
-          textColor: Colors.white,
-        );
-        Get.to(()=>Passwordpage(),transition: Transition.cupertino);
-      }
-      else{
-        Fluttertoast.showToast(
-          msg: "Something Went Wrong: ${res.body}",
-          gravity: ToastGravity.BOTTOM,
-          backgroundColor: Colors.black,
-          textColor: Colors.white,
-        );
-      }
-    }
-    catch(e){
-      Fluttertoast.showToast(
-        msg: "Internal Error",
-        gravity: ToastGravity.BOTTOM,
-        backgroundColor: Colors.black,
-        textColor: Colors.white,
-      );
-    }
-  }
-  Future<void> recover_password() async {
-    try {
-      if (recovery_pass.text.isEmpty || recovery_pass_confirm.text.isEmpty) {
-        Fluttertoast.showToast(
-          msg: "Both fields are required",
-          gravity: ToastGravity.BOTTOM,
-          backgroundColor: Colors.black,
-          textColor: Colors.white,
-        );
-        return;
-      } else if (recovery_pass.text != recovery_pass_confirm.text) {
-        Fluttertoast.showToast(
-          msg: "Passwords do not match",
-          gravity: ToastGravity.BOTTOM,
-          backgroundColor: Colors.red,
-          textColor: Colors.white,
-        );
-        return;
-      } else {
-        var data = {
-          "email": recovery_email.text,
-          "OTP": recovery_otp.value,
-          "password": recovery_pass_confirm.text,
-        };
-
-        var url = Uri.parse("http://35.73.30.144:2005/api/v1/RecoverResetPassword");
-        var res = await http.post(
-          url,
-          headers: {'Content-Type': 'application/json'},
-          body: json.encode(data),
-        );
-
-        if (res.statusCode == 200) {
-          Fluttertoast.showToast(
-            msg: "Password Reset Successfully",
-            gravity: ToastGravity.BOTTOM,
-            backgroundColor: Color(0xFF20be73),
-            textColor: Colors.white,
-          );
-          recovery_email.clear();
-          recovery_otp.value="";
-          recovery_pass.clear();
-          recovery_pass_confirm.clear();
-          Get.to(() => Login(),transition: Transition.cupertino);
-        } else {
-          Fluttertoast.showToast(
-            msg: "Something went wrong. Please try again.",
-            gravity: ToastGravity.BOTTOM,
-            backgroundColor: Colors.red,
-            textColor: Colors.white,
-          );
-        }
-      }
-    } catch (e) {
-      print("Error: $e");
-      Fluttertoast.showToast(
-        msg: "An error occurred: $e",
-        gravity: ToastGravity.BOTTOM,
-        backgroundColor: Colors.black,
-        textColor: Colors.white,
-      );
     }
   }
 }

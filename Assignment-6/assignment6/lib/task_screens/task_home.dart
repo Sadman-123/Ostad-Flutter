@@ -6,8 +6,14 @@ import 'package:task_manager/task_screens/task_newtask.dart';
 import 'package:task_manager/task_screens/task_progresstask.dart';
 import '../components/myappbar.dart';
 import '../controller/task_controller.dart';
-class TaskHome extends StatelessWidget {
+class TaskHome extends StatefulWidget {
+  @override
+  State<TaskHome> createState() => _TaskHomeState();
+}
+
+class _TaskHomeState extends State<TaskHome> {
   TaskController taskController = Get.put(TaskController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

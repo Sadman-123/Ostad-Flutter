@@ -50,7 +50,8 @@ TextStyle Appbar_Username(var mdw)
       fontFamily: "apple"
   );
 }
-TextStyle Appbar_Email(var mdw)
+//Appbar_Email
+TextStyle Appbars_Email(var mdw)
 {
   return TextStyle(
       fontSize: mdw * 0.04,
