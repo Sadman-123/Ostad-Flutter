@@ -1,11 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager/controller/task_controller.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'package:task_manager/style/style.dart';
-import 'package:get/get.dart';
 import '../components/myappbar.dart';
 import '../components/mybutton.dart';
-class TaskNewtaskAdd extends StatelessWidget{
-  TaskController task=Get.find();
+class TaskNewtaskAdd extends StatefulWidget{
+  @override
+  State<TaskNewtaskAdd> createState() => _TaskNewtaskAddState();
+}
+class _TaskNewtaskAddState extends State<TaskNewtaskAdd> {
+  TextEditingController subject=TextEditingController();
+  TextEditingController description=TextEditingController();
+  Future<void> insert_to_task() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? token = prefs.getString('token');
+    if (subject.text.isEmpty || description.text.isEmpty) {
+      Fluttertoast.showToast(
+          msg: "Fill Every Box",
+          gravity: ToastGravity.BOTTOM,
+          backgroundColor: Colors.red.shade500,
+          textColor: Colors.white
+      );
+      return;
+    }
+    else {
+      var dat = {
+        "title": subject.text,
+        "description": description.text,
+        "status": "New"
+      };
+      var url = Uri.parse("http://35.73.30.144:2005/api/v1/createTask");
+      var res = await http.post(url, headers: {
+        'Content-Type': 'application/json',
+        'token': '$token'
+      }, body: json.encode(dat));
+      if (res.statusCode == 200) {
+        Fluttertoast.showToast(
+            msg: "Task Added Successfully",
+            gravity: ToastGravity.BOTTOM,
+            backgroundColor: Color(0xFF20be73),
+            textColor: Colors.white
+        );
+        subject.clear();
+        description.clear();
+      }
+    }
+  }
   @override
   Widget build(BuildContext context) {
     var mdw=MediaQuery.sizeOf(context).width;
@@ -40,14 +82,14 @@ class TaskNewtaskAdd extends StatelessWidget{
                             ),
                             SizedBox(height: mdh*0.035,),
                             TextFormField(
-                              controller: task.subject,
+                              controller: subject,
                               decoration: InputDecoration(
                                   hintText: "Subject"
                               ),
                             ),
                             SizedBox(height: mdh*0.012,),
                             TextFormField(
-                              controller: task.description,
+                              controller: description,
                               maxLines: 10,
                               decoration: InputDecoration(
                                 hintText: "Description",
@@ -55,8 +97,9 @@ class TaskNewtaskAdd extends StatelessWidget{
                             ),
                             SizedBox(height: mdh*0.012,),
                             Mybutton(onpressed: (){
-                              task.insert_to_task();
-                            },something: Icon(Icons.navigate_next),)
+                              insert_to_task();
+                            },something: Icon(Icons.navigate_next),
+                            )
                           ],
                         ),
                       ),

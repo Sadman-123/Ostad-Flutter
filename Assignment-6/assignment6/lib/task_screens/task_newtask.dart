@@ -108,7 +108,7 @@ class TaskNewtask extends StatelessWidget{
         ],
       ),
       floatingActionButton: FloatingActionButton(onPressed: (){
-        Get.to(()=>TaskNewtaskAdd());
+        Navigator.push(context, MaterialPageRoute(builder: (context) => TaskNewtaskAdd(),));
       },child: Icon(Icons.add),),
     );
   }
