@@ -43,7 +43,7 @@ class _TaskCompletedtaskState extends State<TaskCompletedtask> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-          itemCount: task.Completed_Tasks.length,
+          itemCount: lst.length,
           itemBuilder: (context, index) {
             return TaskCards(
               label_bg: Completed_Task_Label_Color,
