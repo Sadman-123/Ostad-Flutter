@@ -35,23 +35,13 @@ class UserController extends GetxController {
   RxString Appbar_Name = "".obs;
   RxString Appbar_Email = "".obs;
   RxMap<String, String> userInfo = <String, String>{}.obs;
-  TextEditingController email = TextEditingController();
-  TextEditingController first_name = TextEditingController();
-  TextEditingController last_name = TextEditingController();
-  TextEditingController mobile = TextEditingController();
-  TextEditingController password = TextEditingController();
-  TextEditingController recovery_email=TextEditingController();
-  RxString recovery_otp="".obs;
-  TextEditingController recovery_pass=TextEditingController();
-  TextEditingController recovery_pass_confirm=TextEditingController();
+
   RxString picurl = "".obs;
   Rx<File> appbarImage = File("").obs;
-  void get_otp(pin){
-    recovery_otp.value=pin;
-  }
   Future<void> registration(BuildContext context, TextEditingController email,
       TextEditingController first_name, TextEditingController last_name,
-      TextEditingController password, TextEditingController mobile) async {
+      TextEditingController password, TextEditingController mobile) async
+  {
     if (email.text.isEmpty || first_name.text.isEmpty ||
         last_name.text.isEmpty || password.text.isEmpty ||
         mobile.text.isEmpty) {

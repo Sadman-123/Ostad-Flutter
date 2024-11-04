@@ -1,11 +1,73 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager/controller/user_controller.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../components/have_act_msg.dart';
 import '../components/mybutton.dart';
-import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import '../style/style.dart';
-class Registration extends StatelessWidget{
-  UserController user=Get.find();
+class Registration extends StatefulWidget{
+  @override
+  State<Registration> createState() => _RegistrationState();
+}
+class _RegistrationState extends State<Registration> {
+  TextEditingController email = TextEditingController();
+  TextEditingController first_name = TextEditingController();
+  TextEditingController last_name = TextEditingController();
+  TextEditingController mobile = TextEditingController();
+  TextEditingController password = TextEditingController();
+  Future<void> registration(BuildContext context, TextEditingController email,
+      TextEditingController first_name, TextEditingController last_name,
+      TextEditingController password, TextEditingController mobile) async
+  {
+    if (email.text.isEmpty || first_name.text.isEmpty ||
+        last_name.text.isEmpty || password.text.isEmpty ||
+        mobile.text.isEmpty) {
+      Fluttertoast.showToast(
+          msg: "Fill Every Box",
+          gravity: ToastGravity.BOTTOM,
+          backgroundColor: Colors.red.shade500,
+          textColor: Colors.white
+      );
+      return;
+    } else {
+      var dat = {
+        "email": email.text,
+        "firstName": first_name.text,
+        "lastName": last_name.text,
+        "mobile": mobile.text,
+        "password": password.text
+      };
+      var url = Uri.parse("http://35.73.30.144:2005/api/v1/Registration");
+      var res = await http.post(
+          url, headers: {'Content-Type': 'application/json'},
+          body: json.encode(dat));
+      if (res.statusCode == 200) {
+        Fluttertoast.showToast(
+            msg: "Account Created Successfully",
+            gravity: ToastGravity.BOTTOM,
+            backgroundColor: Colors.black,
+            textColor: Colors.white
+        );
+        email.clear();
+        first_name.clear();
+        last_name.clear();
+        mobile.clear();
+        password.clear();
+      } else {
+        Fluttertoast.showToast(
+            msg: "Sorry There Was a Problem",
+            gravity: ToastGravity.BOTTOM,
+            backgroundColor: Colors.black,
+            textColor: Colors.white
+        );
+        email.clear();
+        first_name.clear();
+        last_name.clear();
+        mobile.clear();
+        password.clear();
+      }
+    }
+  }
   Widget build(BuildContext context) {
     var mdw=MediaQuery.sizeOf(context).width;
     var mdh=MediaQuery.sizeOf(context).height;
@@ -38,41 +100,41 @@ class Registration extends StatelessWidget{
                             ),
                             SizedBox(height: mdh*0.035,),
                             TextFormField(
-                              controller: user.email,
+                              controller: email,
                               decoration: InputDecoration(
                                   hintText: "Email"
                               ),
                             ),
                             SizedBox(height: mdh*0.012,),
                             TextFormField(
-                              controller: user.first_name,
+                              controller: first_name,
                               decoration: InputDecoration(
                                   hintText: "First Name"
                               ),
                             ),
                             SizedBox(height: mdh*0.012,),
                             TextFormField(
-                              controller: user.last_name,
+                              controller: last_name,
                               decoration: InputDecoration(
                                   hintText: "Last Name"
                               ),
                             ),
                             SizedBox(height: mdh*0.012,),
                             TextFormField(
-                              controller: user.mobile,
+                              controller: mobile,
                               decoration: InputDecoration(
                                   hintText: "Mobile"
                               ),
                             ),
                             SizedBox(height: mdh*0.012,),
                             TextFormField(
-                              controller: user.password,
+                              controller: password,
                               decoration: InputDecoration(
                                   hintText: "Password"
                               ),
                             ),
                             SizedBox(height: mdh*0.035,),
-                            Mybutton(onpressed: (){user.registration(context, user.email, user.first_name, user.last_name, user.password, user.mobile);},something: Icon(Icons.arrow_circle_right_outlined,color: Colors.white,))
+                            Mybutton(onpressed: (){registration(context, email, first_name, last_name, password, mobile);},something: Icon(Icons.arrow_circle_right_outlined,color: Colors.white,))
                           ],
                         ),
                       ),
