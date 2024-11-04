@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/controller/user_controller.dart';
-import 'package:task_manager/initial_screens/forgot_password/emailpage.dart';
-import 'package:task_manager/initial_screens/registration.dart';
 import '../components/mybutton.dart';
 import 'package:get/get.dart';
 import '../style/style.dart';
@@ -51,11 +49,13 @@ class Login extends StatelessWidget{
                     Container(
                       child: Column(
                         children: [
-                          GestureDetector(child: Text("Forgot Password?"),onTap: (){Get.to(()=>Emailpage());},),
+                          GestureDetector(child: Text("Forgot Password?"),onTap: (){
+                            Navigator.pushNamed(context, '/EmailVerify');
+                            },),
                           SizedBox(height: mdh*0.014,),
                           GestureDetector(
                             onTap: (){
-                             Get.to(()=>Registration());
+                             Navigator.pushNamed(context, '/register');
                             },
                             child: RichText(
                               text: TextSpan(
