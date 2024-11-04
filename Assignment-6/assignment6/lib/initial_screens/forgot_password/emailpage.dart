@@ -24,7 +24,9 @@ class _EmailpageState extends State<Emailpage> {
           backgroundColor: Color(0xFF20be73),
           textColor: Colors.white,
         );
-        Navigator.pushNamed(context, '/OtpVerify');
+        Navigator.pushNamed(context, '/OtpVerify',arguments: {
+          'email':recovery_email.text
+        });
       } else {
         Fluttertoast.showToast(
           msg: "Something Went Wrong: ${res.body}",
