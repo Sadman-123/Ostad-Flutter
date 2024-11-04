@@ -1,11 +1,86 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager/controller/task_controller.dart';
-import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:task_manager/task_screens/task_newtask_add.dart';
 import '../components/task_cards.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import '../style/style.dart';
-class TaskNewtask extends StatelessWidget{
-  TaskController task=Get.find();
+class TaskNewtask extends StatefulWidget{
+  @override
+  State<TaskNewtask> createState() => _TaskNewtaskState();
+}
+
+class _TaskNewtaskState extends State<TaskNewtask> {
+  String cancelcount = "00";
+  String completecount = "00";
+  String progresscount = "00";
+  String new_tascount = "00";
+  @override
+  void initState() {
+    super.initState();
+    getSum_by_Status();
+    get_new_data();
+  }
+  var lst=[];
+  Future<void> getSum_by_Status() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? token = prefs.getString('token');
+    var url = Uri.parse("http://35.73.30.144:2005/api/v1/taskStatusCount");
+    var res = await http.get(url, headers: {
+      'Content-Type': 'application/json',
+      'token': token!,
+    });
+    if (res.statusCode == 200) {
+      var data = jsonDecode(res.body);
+      for (var item in data['data']) {
+        switch (item['_id']) {
+          case 'New':
+            setState(() {
+              new_tascount = item['sum'].toString();
+            });
+            break;
+          case 'Completed':
+            setState(() {
+              completecount = item['sum'].toString();
+            });
+            break;
+          case 'Progress':
+            setState(() {
+              progresscount = item['sum'].toString();
+            });
+            break;
+          case 'Cancelled':
+            setState(() {
+              cancelcount = item['sum'].toString();
+            });
+            break;
+        }
+      }
+    }
+  }
+  Future<void> get_new_data() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? token = prefs.getString('token');
+    var url = Uri.parse(
+        "http://35.73.30.144:2005/api/v1/listTaskByStatus/New");
+    var res = await http.get(url, headers: {
+      'Content-Type': 'application/json',
+      'token': token!
+    });
+    if (res.statusCode == 200) {
+      var data = jsonDecode(res.body);
+      if (data['data'] != null && data['data'] is List) {
+        setState(() {
+          lst=data['data'];
+        });
+      } else {
+        print('Unexpected data structure: ${res.body}');
+      }
+    } else {
+      print('Failed to fetch tasks: ${res.statusCode}');
+      print('Response body: ${res.body}');
+    }
+  }
   @override
   Widget build(BuildContext context) {
     var mdw=MediaQuery.sizeOf(context).width;
@@ -24,7 +99,7 @@ class TaskNewtask extends StatelessWidget{
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                     Obx(()=> Text("${task.cancelcount}",style: Sum_Tile_Num(mdw)),),
+                      Text("${cancelcount}",style: Sum_Tile_Num(mdw),),
                       Text("Cancelled",style: Sum_Tile_Title(mdw),)
                     ],
                   ),
@@ -40,7 +115,7 @@ class TaskNewtask extends StatelessWidget{
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Obx(()=>Text("${task.completecount}",style: Sum_Tile_Num(mdw)),),
+                      Text("${completecount}",style: Sum_Tile_Num(mdw)),
                       Text("Completed",style: Sum_Tile_Title(mdw))
                     ],
                   ),
@@ -55,7 +130,7 @@ class TaskNewtask extends StatelessWidget{
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Obx(()=>Text("${task.progresscount}",style: Sum_Tile_Num(mdw)),),
+                      Text("${progresscount}",style: Sum_Tile_Num(mdw)),
                       Text("Progress",style: Sum_Tile_Title(mdw))
                     ],
                   ),
@@ -70,7 +145,7 @@ class TaskNewtask extends StatelessWidget{
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Obx(()=>Text("${task.new_tascount}",style: Sum_Tile_Num(mdw)),),
+                      Text("${new_tascount}",style: Sum_Tile_Num(mdw),),
                       Text("New Task",style: Sum_Tile_Title(mdw))
                     ],
                   ),
@@ -87,22 +162,19 @@ class TaskNewtask extends StatelessWidget{
           SizedBox(height: mdh*0.015,),
           Expanded(
             child: Container(
-              child: Obx(() {
-                print(task.New_Tasks);
-                return ListView.builder(
-                  itemCount: task.New_Tasks.length,
-                  itemBuilder: (context, index) {
-                    return TaskCards(
-                      label_bg: New_Task_Label_Color,
-                      id: task.New_Tasks[index]['_id'] ?? '',
-                      title: task.New_Tasks[index]['title'] ?? 'No Title',
-                      description: task.New_Tasks[index]['description'] ?? 'No Description',
-                      createdDate: task.New_Tasks[index]['createdDate'] ?? 'Unknown Date',
-                      status: task.New_Tasks[index]['status'] ?? 'Unknown Status',
-                    );
-                  },
-                );
-              }),
+              child: ListView.builder(
+                itemCount: lst.length,
+                itemBuilder: (context, index) {
+                  return TaskCards(
+                              label_bg: New_Task_Label_Color,
+                              id: lst[index]['_id'] ?? '',
+                              title: lst[index]['title'] ?? 'No Title',
+                              description: lst[index]['description'] ?? 'No Description',
+                              createdDate: lst[index]['createdDate'] ?? 'Unknown Date',
+                              status: lst[index]['status'] ?? 'Unknown Status',
+                            );
+                },
+              ),
             ),
           )
         ],
