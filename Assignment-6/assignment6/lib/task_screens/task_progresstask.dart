@@ -1,30 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:task_manager/controller/task_controller.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:task_manager/style/style.dart';
 import '../components/task_cards.dart';
-class TaskProgresstask extends StatelessWidget{
-  TaskController task=Get.find();
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+class TaskProgresstask extends StatefulWidget{
+  @override
+  State<TaskProgresstask> createState() => _TaskProgresstaskState();
+}
+
+class _TaskProgresstaskState extends State<TaskProgresstask> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    get_progress_data();
+  }
+  var lst=[];
+  Future<void> get_progress_data() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? token = prefs.getString('token');
+    var url = Uri.parse(
+        "http://35.73.30.144:2005/api/v1/listTaskByStatus/Progress");
+    var res = await http.get(url, headers: {
+      'Content-Type': 'application/json',
+      'token': token!
+    });
+    if (res.statusCode == 200) {
+      var data = jsonDecode(res.body);
+      if (data['data'] != null && data['data'] is List) {
+        setState(() {
+          lst=data['data'];
+        });
+      } else {
+        print('Unexpected data structure: ${res.body}');
+      }
+    } else {
+      print('Failed to fetch tasks: ${res.statusCode}');
+      print('Response body: ${res.body}');
+    }
+  }
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
-      body: Obx(() {
-        print(task.Progress_Tasks);
-        return ListView.builder(
-          itemCount: task.Progress_Tasks.length,
+      body: ListView.builder(
+          itemCount: lst.length,
           itemBuilder: (context, index) {
             return TaskCards(
               label_bg: Progress_Task_Label_Color,
-              id: task.Progress_Tasks[index]['_id'] ?? '',
-              title: task.Progress_Tasks[index]['title'] ?? 'No Title',
-              description: task.Progress_Tasks[index]['description'] ?? 'No Description',
-              createdDate: task.Progress_Tasks[index]['createdDate'] ?? 'Unknown Date',
-              status: task.Progress_Tasks[index]['status'] ?? 'Unknown Status',
+              id: lst[index]['_id'] ?? '',
+              title: lst[index]['title'] ?? 'No Title',
+              description: lst[index]['description'] ?? 'No Description',
+              createdDate: lst[index]['createdDate'] ?? 'Unknown Date',
+              status: lst[index]['status'] ?? 'Unknown Status',
             );
           },
-        );
-      }),
+        ),
     );
   }
 }
