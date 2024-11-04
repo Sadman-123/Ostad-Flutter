@@ -173,7 +173,8 @@ class UserController extends GetxController {
   Future<void> UpdateProfile(String token, TextEditingController email,
       TextEditingController first_name, TextEditingController last_name,
       TextEditingController mobile, TextEditingController password,
-      BuildContext context) async {
+      BuildContext context) async
+  {
     var dat = {
       "email": email.text,
       "firstName": first_name.text,
