@@ -36,7 +36,10 @@ class _OtppageState extends State<Otppage> {
           backgroundColor: Color(0xFF20be73),
           textColor: Colors.white,
         );
-        Navigator.pushNamed(context, '/NewPassword');
+        Navigator.pushNamed(context, '/NewPassword',arguments: {
+          "email":recovery_email,
+          "otp":recovery_otp
+        });
       } else {
         Fluttertoast.showToast(
           msg: "Something Went Wrong: ${res.body}",
