@@ -55,6 +55,7 @@ class _TaskCompletedtaskState extends State<TaskCompletedtask> {
           return TaskCards(
             label_bg: Completed_Task_Label_Color,
             id: lst[index]['_id'] ?? '',
+            Refresh: get_completed_data,
             title: lst[index]['title'] ?? 'No Title',
             description: lst[index]['description'] ?? 'No Description',
             createdDate: lst[index]['createdDate'] ?? 'Unknown Date',

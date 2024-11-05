@@ -179,6 +179,7 @@ class _TaskNewtaskState extends State<TaskNewtask> {
                     description: lst[index]['description'] ?? 'No Description',
                     createdDate: lst[index]['createdDate'] ?? 'Unknown Date',
                     status: lst[index]['status'] ?? 'Unknown Status',
+                    Refresh: get_new_data,
                   );
                 },
               ),

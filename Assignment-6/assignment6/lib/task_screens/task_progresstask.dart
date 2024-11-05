@@ -56,6 +56,7 @@ class _TaskProgresstaskState extends State<TaskProgresstask> {
           return TaskCards(
             label_bg: Progress_Task_Label_Color,
             id: lst[index]['_id'] ?? '',
+            Refresh: get_progress_data,
             title: lst[index]['title'] ?? 'No Title',
             description: lst[index]['description'] ?? 'No Description',
             createdDate: lst[index]['createdDate'] ?? 'Unknown Date',

@@ -55,6 +55,7 @@ class _TaskCancelledtaskState extends State<TaskCancelledtask> {
             itemCount: lst.length,
             itemBuilder: (context, index) {
               return TaskCards(
+                Refresh: get_cancelled_data,
                 label_bg: Cancelled_Task_Label_Color,
                 id: lst[index]['_id'] ?? '',
                 title: lst[index]['title'] ?? 'No Title',
