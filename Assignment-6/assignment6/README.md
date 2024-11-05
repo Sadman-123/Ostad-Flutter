@@ -16,21 +16,27 @@ The Task Manager App is a powerful productivity tool that helps you organize, ma
 
 ## 📸 Screenshots
 
-Below are preview images of key screens in the app. Click on any image to view the full size.
+Here are previews of key screens in the app, displayed side by side for easy viewing:
 
-| Screenshot                          | Description                  |
-|-------------------------------------|------------------------------|
-| <img src="./SS/s1.png" width="250"> | **s1**: Registration Screen  |
-| <img src="./SS/s2.png" width="250"> | **s2**: Login Screen         |
-| <img src="./SS/s3.png" width="250"> | **s3**: Email Verification (Password Recovery) |
-| <img src="./SS/s4.png" width="250"> | **s4**: OTP Verification (Password Recovery) |
-| <img src="./SS/s5.png" width="250"> | **s5**: New Password Screen (Password Recovery) |
-| <img src="./SS/s6.png" width="250"> | **s6**: Profile Update Screen |
-| <img src="./SS/s7.png" width="250"> | **s7**: Home Screen and New Tasks |
-| <img src="./SS/s8.png" width="250"> | **s8**: Add New Task Screen |
-| <img src="./SS/s9.png" width="250"> | **s9**: Change Task Status Screen |
-| <img src="./SS/s10.png" width="250"> | **s10**: Completed Tasks Screen |
-| <img src="./SS/s11.png" width="250"> | **s11**: Canceled Tasks Screen |
-| <img src="./SS/s12.png" width="250"> | **s12**: In-Progress Tasks Screen |
+<div align="center">
+  <img src="./SS/s1.png" width="200" alt="Registration Screen">
+  <img src="./SS/s2.png" width="200" alt="Login Screen">
+  <img src="./SS/s3.png" width="200" alt="Email Verification Screen">
+</div>
+<div align="center">
+  <img src="./SS/s4.png" width="200" alt="OTP Verification Screen">
+  <img src="./SS/s5.png" width="200" alt="New Password Screen">
+  <img src="./SS/s6.png" width="200" alt="Profile Update Screen">
+</div>
+<div align="center">
+  <img src="./SS/s7.png" width="200" alt="Home and New Tasks Screen">
+  <img src="./SS/s8.png" width="200" alt="Add New Task Screen">
+  <img src="./SS/s9.png" width="200" alt="Change Task Status Screen">
+</div>
+<div align="center">
+  <img src="./SS/s10.png" width="200" alt="Completed Tasks Screen">
+  <img src="./SS/s11.png" width="200" alt="Canceled Tasks Screen">
+  <img src="./SS/s12.png" width="200" alt="In-Progress Tasks Screen">
+</div>
 
 ---
