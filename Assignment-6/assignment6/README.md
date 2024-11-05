@@ -1,28 +1,36 @@
 # Task Manager App
 
-This Task Manager app is a productivity tool that allows users to organize, track, and manage tasks effectively. With features like registration, login, profile update, and task management (new, completed, canceled, and in-progress tasks), this app offers a user-friendly experience. Built using Flutter with an API provided by the Ostad Team, this app utilizes only stateful widgets for its interface.
+The Task Manager App is a powerful productivity tool that helps you organize, manage, and track tasks efficiently. Built with Flutter and powered by an API from the Ostad Team, the app is designed for ease of use, featuring stateful widgets to manage task statuses with a simple and intuitive UI.
 
-## Features
+---
 
-- **User Registration & Login:** Easy onboarding with a streamlined registration and login process.
-- **Password Recovery:** Forgot your password? Reset it with email verification and OTP-based authentication.
-- **Profile Management:** Update profile details anytime.
-- **Task Management:** Add new tasks, view tasks, and track their progress (New, Completed, Canceled, or In-Progress).
-- **Task Status Updates:** Change the status of tasks directly from the app.
+## ✨ Features
 
-## Screenshots
+- **User Registration & Login**: Register or log in to securely access your tasks.
+- **Password Recovery**: Reset your password with email and OTP verification.
+- **Profile Management**: Easily update your profile details.
+- **Task Management**: Create, view, and track tasks across different statuses.
+- **Real-Time Status Updates**: Update tasks to "New," "Completed," "Canceled," or "In-Progress."
 
-| Screenshot | Description |
-|------------|-------------|
-| ![Registration Screen](./SS/s1.png) | **s1**: Registration Screen |
-| ![Login Screen](./SS/s2.png) | **s2**: Login Screen |
-| ![Email Verification](./SS/s3.png) | **s3**: Email Verification Screen (Password Recovery) |
-| ![OTP Verification](./SS/s4.png) | **s4**: OTP Verification Screen (Password Recovery) |
-| ![New Password Screen](./SS/s5.png) | **s5**: New Password Screen (Password Recovery) |
-| ![Profile Update Screen](./SS/s6.png) | **s6**: Profile Update Screen |
-| ![Home Screen + New Tasks](./SS/s7.png) | **s7**: Home Screen and New Tasks |
-| ![Add New Task](./SS/s8.png) | **s8**: Add New Task Screen |
-| ![Change Task Status](./SS/s9.png) | **s9**: Change Task Status |
-| ![Completed Tasks](./SS/s10.png) | **s10**: Completed Tasks Screen |
-| ![Cancelled Tasks](./SS/s11.png) | **s11**: Cancelled Tasks Screen |
-| ![In-Progress Tasks](./SS/s12.png) | **s12**: In-Progress Tasks Screen |
+---
+
+## 📸 Screenshots
+
+Below are preview images of key screens in the app. Click on any image to view the full size.
+
+| Screenshot                          | Description                  |
+|-------------------------------------|------------------------------|
+| <img src="./SS/s1.png" width="250"> | **s1**: Registration Screen  |
+| <img src="./SS/s2.png" width="250"> | **s2**: Login Screen         |
+| <img src="./SS/s3.png" width="250"> | **s3**: Email Verification (Password Recovery) |
+| <img src="./SS/s4.png" width="250"> | **s4**: OTP Verification (Password Recovery) |
+| <img src="./SS/s5.png" width="250"> | **s5**: New Password Screen (Password Recovery) |
+| <img src="./SS/s6.png" width="250"> | **s6**: Profile Update Screen |
+| <img src="./SS/s7.png" width="250"> | **s7**: Home Screen and New Tasks |
+| <img src="./SS/s8.png" width="250"> | **s8**: Add New Task Screen |
+| <img src="./SS/s9.png" width="250"> | **s9**: Change Task Status Screen |
+| <img src="./SS/s10.png" width="250"> | **s10**: Completed Tasks Screen |
+| <img src="./SS/s11.png" width="250"> | **s11**: Canceled Tasks Screen |
+| <img src="./SS/s12.png" width="250"> | **s12**: In-Progress Tasks Screen |
+
+---
