@@ -23,6 +23,7 @@ class _TaskNewtaskState extends State<TaskNewtask> {
   }
   Future<void> _refreshData() async {
     setState(() {
+      getSum_by_Status();
       get_new_data();
     });
     await Future.delayed(Duration(seconds: 1));
