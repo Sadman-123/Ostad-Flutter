@@ -21,6 +21,12 @@ class _TaskNewtaskState extends State<TaskNewtask> {
     getSum_by_Status();
     get_new_data();
   }
+  Future<void> _refreshData() async {
+    setState(() {
+      get_new_data();
+    });
+    await Future.delayed(Duration(seconds: 1));
+  }
   var lst=[];
   Future<void> getSum_by_Status() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -86,7 +92,7 @@ class _TaskNewtaskState extends State<TaskNewtask> {
     var mdw=MediaQuery.sizeOf(context).width;
     var mdh=MediaQuery.sizeOf(context).height;
     return Scaffold(
-      body: Column(
+      body: RefreshIndicator(child: Column(
         children: [
           Container(
             margin: EdgeInsets.only(
@@ -166,19 +172,19 @@ class _TaskNewtaskState extends State<TaskNewtask> {
                 itemCount: lst.length,
                 itemBuilder: (context, index) {
                   return TaskCards(
-                              label_bg: New_Task_Label_Color,
-                              id: lst[index]['_id'] ?? '',
-                              title: lst[index]['title'] ?? 'No Title',
-                              description: lst[index]['description'] ?? 'No Description',
-                              createdDate: lst[index]['createdDate'] ?? 'Unknown Date',
-                              status: lst[index]['status'] ?? 'Unknown Status',
-                            );
+                    label_bg: New_Task_Label_Color,
+                    id: lst[index]['_id'] ?? '',
+                    title: lst[index]['title'] ?? 'No Title',
+                    description: lst[index]['description'] ?? 'No Description',
+                    createdDate: lst[index]['createdDate'] ?? 'Unknown Date',
+                    status: lst[index]['status'] ?? 'Unknown Status',
+                  );
                 },
               ),
             ),
           )
         ],
-      ),
+      ), onRefresh: _refreshData,color: MythemeColor,),
       floatingActionButton: FloatingActionButton(onPressed: (){
         Navigator.push(context, MaterialPageRoute(builder: (context) => TaskNewtaskAdd(),));
       },child: Icon(Icons.add),),

@@ -16,6 +16,13 @@ class _TaskProgresstaskState extends State<TaskProgresstask> {
     super.initState();
     get_progress_data();
   }
+  Future<void> _refreshData() async {
+
+    setState(() {
+      get_progress_data();
+    });
+    await Future.delayed(Duration(seconds: 1));
+  }
   var lst=[];
   Future<void> get_progress_data() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -43,19 +50,19 @@ class _TaskProgresstaskState extends State<TaskProgresstask> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-          itemCount: lst.length,
-          itemBuilder: (context, index) {
-            return TaskCards(
-              label_bg: Progress_Task_Label_Color,
-              id: lst[index]['_id'] ?? '',
-              title: lst[index]['title'] ?? 'No Title',
-              description: lst[index]['description'] ?? 'No Description',
-              createdDate: lst[index]['createdDate'] ?? 'Unknown Date',
-              status: lst[index]['status'] ?? 'Unknown Status',
-            );
-          },
-        ),
+      body: RefreshIndicator(child: ListView.builder(
+        itemCount: lst.length,
+        itemBuilder: (context, index) {
+          return TaskCards(
+            label_bg: Progress_Task_Label_Color,
+            id: lst[index]['_id'] ?? '',
+            title: lst[index]['title'] ?? 'No Title',
+            description: lst[index]['description'] ?? 'No Description',
+            createdDate: lst[index]['createdDate'] ?? 'Unknown Date',
+            status: lst[index]['status'] ?? 'Unknown Status',
+          );
+        },
+      ), onRefresh: _refreshData,color: MythemeColor,)
     );
   }
 }

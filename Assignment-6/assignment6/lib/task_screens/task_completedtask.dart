@@ -16,6 +16,13 @@ class _TaskCompletedtaskState extends State<TaskCompletedtask> {
     get_completed_data();
   }
   var lst=[];
+  Future<void> _refreshData() async {
+
+    setState(() {
+      get_completed_data();
+    });
+    await Future.delayed(Duration(seconds: 1));
+  }
   Future<void> get_completed_data() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final String? token = prefs.getString('token');
@@ -42,19 +49,19 @@ class _TaskCompletedtaskState extends State<TaskCompletedtask> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-          itemCount: lst.length,
-          itemBuilder: (context, index) {
-            return TaskCards(
-              label_bg: Completed_Task_Label_Color,
-              id: lst[index]['_id'] ?? '',
-              title: lst[index]['title'] ?? 'No Title',
-              description: lst[index]['description'] ?? 'No Description',
-              createdDate: lst[index]['createdDate'] ?? 'Unknown Date',
-              status: lst[index]['status'] ?? 'Unknown Status',
-            );
-          },
-      ),
+      body: RefreshIndicator(child: ListView.builder(
+        itemCount: lst.length,
+        itemBuilder: (context, index) {
+          return TaskCards(
+            label_bg: Completed_Task_Label_Color,
+            id: lst[index]['_id'] ?? '',
+            title: lst[index]['title'] ?? 'No Title',
+            description: lst[index]['description'] ?? 'No Description',
+            createdDate: lst[index]['createdDate'] ?? 'Unknown Date',
+            status: lst[index]['status'] ?? 'Unknown Status',
+          );
+        },
+      ),onRefresh: _refreshData,color: MythemeColor,)
     );
   }
 }

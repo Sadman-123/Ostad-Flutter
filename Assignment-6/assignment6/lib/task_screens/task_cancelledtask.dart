@@ -15,6 +15,12 @@ class _TaskCancelledtaskState extends State<TaskCancelledtask> {
     super.initState();
     get_cancelled_data();
   }
+  Future<void> _refreshData() async {
+    setState(() {
+     get_cancelled_data();
+    });
+    await Future.delayed(Duration(seconds: 1));
+  }
   var lst=[];
   Future<void> get_cancelled_data() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -43,19 +49,22 @@ class _TaskCancelledtaskState extends State<TaskCancelledtask> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      body: ListView.builder(
-          itemCount: lst.length,
-          itemBuilder: (context, index) {
-            return TaskCards(
-              label_bg: Cancelled_Task_Label_Color,
-              id: lst[index]['_id'] ?? '',
-              title: lst[index]['title'] ?? 'No Title',
-              description: lst[index]['description'] ?? 'No Description',
-              createdDate: lst[index]['createdDate'] ?? 'Unknown Date',
-              status: lst[index]['status'] ?? 'Unknown Status',
-            );
-          },
-      ),
+      body: RefreshIndicator(
+        color: MythemeColor,
+          child: ListView.builder(
+            itemCount: lst.length,
+            itemBuilder: (context, index) {
+              return TaskCards(
+                label_bg: Cancelled_Task_Label_Color,
+                id: lst[index]['_id'] ?? '',
+                title: lst[index]['title'] ?? 'No Title',
+                description: lst[index]['description'] ?? 'No Description',
+                createdDate: lst[index]['createdDate'] ?? 'Unknown Date',
+                status: lst[index]['status'] ?? 'Unknown Status',
+              );
+            },
+          ),
+          onRefresh: _refreshData)
     );
   }
 }
