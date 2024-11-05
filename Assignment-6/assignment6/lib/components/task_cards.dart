@@ -95,7 +95,7 @@ class _TaskCardsState extends State<TaskCards> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: IconButton(onPressed: (){showStatusChangeSheet(context,mdw,mdh,widget.status,widget.id,);}, icon: Icon(Icons.edit,color: Color(0xFFabff4f),))
+                          child: IconButton(onPressed: (){showStatusChangeSheet(context,mdw,mdh,widget.status,widget.id,widget.Refresh);}, icon: Icon(Icons.edit,color: Color(0xFFabff4f),))
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),

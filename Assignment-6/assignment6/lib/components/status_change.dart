@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:task_manager/controller/task_controller.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 import '../style/style.dart';
-TaskController task=Get.find();
-void showStatusChangeSheet(BuildContext context, double mdw,double mdh,String status,String id) {
+void showStatusChangeSheet(BuildContext context, double mdw,double mdh,String status,String id,VoidCallback Refresh) {
+  Future<void>update_STATUS(String id,String current,String type)async{
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? token = prefs.getString('token');
+    var url=Uri.parse("http://35.73.30.144:2005/api/v1/updateTaskStatus/$id/$type");
+    var res=await http.get(url,headers: {
+      'Content-Type':'application/json',
+      'token':'$token'
+    });
+    if(res.statusCode==200)
+    {
+      Refresh();
+      Fluttertoast.showToast(msg: "Status Changed",gravity: ToastGravity.BOTTOM);
+    }
+  }
   showModalBottomSheet(
     context: context,
     builder: (context) {
@@ -15,7 +29,7 @@ void showStatusChangeSheet(BuildContext context, double mdw,double mdh,String st
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 "Status Change",
-                style: Task_Card_Title(mdw), // Ensure Task_Card_Title returns a valid TextStyle
+                style: Task_Card_Title(mdw),
               ),
             ),
              Divider(),
@@ -23,15 +37,14 @@ void showStatusChangeSheet(BuildContext context, double mdw,double mdh,String st
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 GestureDetector(child: status_changer_button(mdw, mdh, status=="New"?"assets/checked.png":"assets/new.png", status=="New"?"Completed":"New"),onTap: (){
-                  task.update_STATUS(id,status, status=="New"?"Completed":"New").then((_)async{
-
+                  update_STATUS(id,status, status=="New"?"Completed":"New").then((_)async{
                   });
                 },),
                 GestureDetector(child: status_changer_button(mdw, mdh, "assets/work-in-progress.png", "Progress"),onTap: (){
-                  task.update_STATUS(id, status,"Progress");
+                  update_STATUS(id, status,"Progress");
                 },),
                 GestureDetector(child: status_changer_button(mdw, mdh, "assets/prohibition.png", "Cancelled"),onTap: (){
-                  task.update_STATUS(id,status, "Cancelled");
+                  update_STATUS(id,status, "Cancelled");
                 },),
               ],
             )

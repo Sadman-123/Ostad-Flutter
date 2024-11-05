@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:task_manager/controller/task_controller.dart';
 import 'package:task_manager/initial_screens/forgot_password/emailpage.dart';
 import 'package:task_manager/initial_screens/forgot_password/otppage.dart';
 import 'package:task_manager/initial_screens/forgot_password/passwordpage.dart';
@@ -12,7 +10,6 @@ import 'initial_screens/splash.dart';
 import 'task_screens/task_home.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Get.put(TaskController());
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   String? token = prefs.getString("token");
   runApp(Main(hasToken: token != null));
