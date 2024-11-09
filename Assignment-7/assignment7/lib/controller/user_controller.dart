@@ -1,11 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:pinput/pinput.dart';
 import 'package:task_manager/components/diy_toast.dart';
 import 'package:task_manager/controller/task_controller.dart';
 import 'package:task_manager/initial_screens/forgot_password/otppage.dart';
