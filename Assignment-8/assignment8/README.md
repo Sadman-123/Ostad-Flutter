@@ -1,16 +1,21 @@
-# assignment8
+# Real-Time Location Tracker
 
-A new Flutter project.
+Real-Time Location Tracker is an app that allows you to track the live location of users or assets seamlessly. It is designed to provide accurate location data in real-time, ensuring reliability and ease of use.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- **Live Location Tracking:** Monitor the real-time location of users or devices.
+- **User-Friendly Interface:** Simplified UI for better user experience.
+- **Multi-Platform Support:** Works on Android, iOS, and web platforms.
+- **Customizable Settings:** Adjust settings to suit your needs.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots
+
+<p align="center">
+  <img src="SS/s1.png" alt="Screenshot 1" width="45%">
+  <img src="SS/s2.png" alt="Screenshot 2" width="45%">
+</p>
